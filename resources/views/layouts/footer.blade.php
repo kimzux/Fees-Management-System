@@ -24,4 +24,16 @@
  <!-- Page level custom scripts -->
  <script src="{{asset('/customauth/js/demo/chart-area-demo.js')}}"></script>
  <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
+<div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Your Website 2020</span>
+    </div>
+  </div>
+</footer>
+</div>
 </body>
