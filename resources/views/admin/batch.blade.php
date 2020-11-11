@@ -12,6 +12,16 @@
             <h1 class="h3 mb-0 text-gray-800">Adding Batch</h1>
             </div>
             <hr class="sidebar-divider d-none d-md-block">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                 <strong>{{ $message }}</strong>
+       </div>
+       @endif
+       @if ($message = Session::get('error'))
+       <div class="alert alert-warning alert-block">   
+           <strong>{{ $message }}</strong>
+       </div>
+       @endif
             <div class="card bg-light mb-3" style="max-width: 35rem;">
               <div class="card-header"><b>Add Batch</b></div>
               <div class="card-body">
@@ -24,13 +34,16 @@
                             </div>
                   <div class="form-group row">
                     <label for="button" class="col-sm-4 col-form-label"></label>
+                  
                   <div class="col-sm-4 ">
                         <button type="submit" class="btn btn-primary" style="align-center">Add</button>
                     </div>
                      </div>
                      <?=csrf_field()?>  
+
                      
                 </form>
+               
               </div>
             </div>
 

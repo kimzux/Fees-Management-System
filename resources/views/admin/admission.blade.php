@@ -9,7 +9,21 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+          @if ($message = Session::get('error'))
+          <div class="alert alert-danger alert-block">   
+              <strong>{{ $message }}</strong>
+          </div>
+          @endif
+          @if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+    <strong>{{ $message }}</strong>
+</div>
+@endif
+@if ($message = Session::get('warning'))
+<div class="alert alert-warning alert-block">   
+    <strong>{{ $message }}</strong>
+</div>
+@endif
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">New Admission</h1>
@@ -31,7 +45,7 @@
                   <div class="card bg-light mb-3" style="max-width: 60rem;">
                     <div class="card-header"><h5><b>Admission Form</b></h5></div>
                     <div class="card-body">
-                        <form class="form" action="admission" method="post" id="registrationForm">
+                        <form class="form" action="admission" method="post" id="registrationForm" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label for="inputAdmissionNumber" class="col-sm-2 col-form-label"><b>Admission Number</b></label>
                                 <div class="col-sm-8">
@@ -65,7 +79,7 @@
                                      <div class="form-group row">
                                         <label for="inputDate" class="col-sm-2 col-form-label"><b>Date Of Joining</b></label>
                                         <div class="col-sm-4">
-                                          <input type="date" class="form-control" id="inputDate" placeholder="Date" name="doj"required>
+                                          <input type="date" class="form-control" id="inputDate" placeholder="Date" name="doj" required>
                                         </div>
                                          </div>
                                          <div class="form-group row">
@@ -143,11 +157,20 @@
                   
                 </div>
                 <div class="tab-pane fade" id="profile">
-                  <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                  <div class="card bg-light mb-3" style="max-width: 60rem">
+                    <div class="card-header">Upload the Students From Excel File 
+                     
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">Light card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      
+                      <h5 class="card-title">Download sample here <a href='<?=asset('sample.xlsx')?>'>Download</a>
+                    
+                      <br><p class="card-text pt-4" >This part allows you to upload all students information.</p>
+                      <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
+                      <div class="col-sm-offset-8 col-sm-8">
+                        <hr class="sidebar-divider d-none d-md-block">
+                        <button type="submit" class="btn btn-primary" autocomplete="off">Save</button>
+                    </div> 
                     </div>
                   </div>
                   

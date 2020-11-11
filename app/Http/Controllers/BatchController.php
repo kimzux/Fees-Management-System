@@ -19,15 +19,14 @@ class BatchController extends Controller
     }
     public function store()
     {   
-        
+        $check=Batches::where('batch_name',  request('batch'))->first();
+        if(empty($check)){
             $batch = new Batches();
             $batch->batch_name = request('batch');
             $batch->save();
-            if($batch){
-                return redirect()->back()->with('success','batch has been saved');
-            }
-            else{
-                return redirect()->back()->with('error','batch has been failed to be saved');
+            return redirect()->back()->with('success','batch has been added');
+        }else{
+                return redirect()->back()->with('error','batch has been already saved');
             }
             
         

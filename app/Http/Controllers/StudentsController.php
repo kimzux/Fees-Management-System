@@ -57,7 +57,8 @@ class StudentsController extends Controller
       // return redirect(‘admission’)->with(‘message’, ‘User registered!);
       return redirect()->back()->with('error','sorry user with that email address already exist!!');
     }
-
+  $check=Students::where('registration_number',  request('registration_number'))->first();
+  if(empty($check)){
   $student = new Students();
   $student->user_id = $user->id;
   $student->name = $user->name;
@@ -67,15 +68,21 @@ class StudentsController extends Controller
   $student->parent_name=request('parent_name');
   $student->address= request('address');
   $student->date_of_birth= request('dob');
-  $student->date_of_join= request('doj');
+  $student->date_of_joining= request('doj');
   $student->gender= request('gender');
+  // $student->image= request('image')->nullable
   $student->save();
   
   $student_batch= new Student_batch();
   $student_batch->student_id=$student->id;
   $student_batch->batch_id=request('batch');
   $student_batch->save();
-
+  return redirect()->back()->with('success','Data Saved');
+  }
+  else{
+  
+    return redirect()->back()->with('warning','sorry these student already exist');
+   }
 
 
    
@@ -83,16 +90,13 @@ class StudentsController extends Controller
   // $student = DB::table('students')->insert(request()->except('password','_token'));
 
     // DB::select('insert into students(username,email,parent_name,address,date_of_birth,d,ate_of_join,password,gender) values(?,?,?,?,?,?,?,?,?)',[$admission_number, $student_name,$student_email,$parent_name,$student_address,$date_of_birth,$date_of_join,$password,$gender]);
-  if($student){
-   return redirect()->back()->with('success','Data Saved');
-  }else{
-    echo "Not served";
-    exit;
-    return redirect()->back()->with('error','sorry failed to save data please try again!!');
-  }
+  // if($student){
+  //  return redirect()->back()->with('success','Data Saved');
+ 
    
   }
 }
+
 
   /**
    * Display the specified resource.

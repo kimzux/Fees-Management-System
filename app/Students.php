@@ -16,7 +16,7 @@ class Students extends Model
 		'name',
 		'parent_name',
 		'date_of_birth',
-		'date_of_joining',
+		'date_of_join',
 		'email',
 		'batch_id',
         'phone_number',

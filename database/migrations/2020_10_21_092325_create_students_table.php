@@ -11,7 +11,7 @@ class CreateStudentsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->timestamps();
-			$table->string('registration_number', 100);
+			$table->string('registration_number', 100)->unique();;
 			$table->string('name', 100);
 			$table->string('parent_name', 100);
 			$table->date('date_of_birth');
@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration {
 			$table->string('email', 100);
 			$table->string('phone_number', 100);
 			$table->string('address', 100);
-			$table->string('image', 100);
+			$table->string('image')->nullable();
 			$table->string('gender', 50);
 		});
 	}
