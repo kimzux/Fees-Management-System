@@ -17,6 +17,12 @@ class UsersImport implements ToModel
     public function model(array $row)
     {
        
+        $user = new User([
+            'user_id'
+        ]);
+      
+       
+
 
         return new Students([
             'registration_number'  => $row[0],
@@ -31,15 +37,10 @@ class UsersImport implements ToModel
             'email'=> $row[9],
             'phone_number'=> $row[10],
             'address'=> $row[11],
-            'photo'=>$row[12]
+            'photo'=>$row[12],
+            'user_id' => $user->id
 
         ]);
-        return new User([
-            'user_id'
-        ]);
-      
-       
-
             
        	
         // admission_number	student_name	parent_name	gender	date_of_birth date_of_join	date of join	education_level	branch	batch	email	phone_number	address	photo
