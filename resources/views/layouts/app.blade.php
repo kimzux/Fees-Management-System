@@ -345,6 +345,7 @@
        
 
         <main class="py-4">
+   
             @yield('content')
         </main>
         <footer class="sticky-footer bg-white">

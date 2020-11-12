@@ -10,17 +10,20 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
           @if ($message = Session::get('error'))
-          <div class="alert alert-danger alert-block">   
+          <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>   
               <strong>{{ $message }}</strong>
           </div>
           @endif
           @if ($message = Session::get('success'))
 <div class="alert alert-success alert-block">
+  <button type="button" class="close" data-dismiss="alert">×</button>
     <strong>{{ $message }}</strong>
 </div>
 @endif
 @if ($message = Session::get('warning'))
-<div class="alert alert-warning alert-block">   
+   <div class="alert alert-warning alert-block"> 
+  <button type="button" class="close" data-dismiss="alert">×</button>  
     <strong>{{ $message }}</strong>
 </div>
 @endif
@@ -166,11 +169,14 @@
                       <h5 class="card-title">Download sample here <a href='<?=asset('sample.xlsx')?>'>Download</a>
                     
                       <br><p class="card-text pt-4" >This part allows you to upload all students information.</p>
-                      <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
+                      <form method="post" action="admission" enctype="multipart/form-data">
+                      <input id="fileSelect" type="file" name="select_file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
                       <div class="col-sm-offset-8 col-sm-8">
                         <hr class="sidebar-divider d-none d-md-block">
-                        <button type="submit" class="btn btn-primary" autocomplete="off">Save</button>
-                    </div> 
+                        <button type="submit" name="submit" class="btn btn-primary" autocomplete="off">Save</button>
+                    </div>
+                    <?=csrf_field()?>
+                  </form> 
                     </div>
                   </div>
                   
