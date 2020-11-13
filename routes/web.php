@@ -42,7 +42,7 @@ Route::get('/userdashboard', 'UserDashboardController@show');
 // Route::get('/profile', 'UserDashboardController@userprofile');
 Route::post('/admission', 'StudentsController@store');
 Route::post('/batch', 'BatchController@store');
-Route::post('/admission', 'ImportExportController@import');
+// Route::post('/admission', 'ImportExportController@import');
 // Route::resource('branches', 'BranchesController');
 // Route::resource('concession', 'ConcessionController');
 // Route::resource('fees', 'feesController');

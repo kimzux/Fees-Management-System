@@ -17,12 +17,31 @@ class UsersImport implements ToModel
     public function model(array $row)
     {
        
-        $user = new User([
-            'user_id'
-        ]);
+        // if($_POST){
+    
+        //   $user = User::where('email', request('email'))->first();
+        //   if(!$user){
+        // $user = User::create([
+        //     'name'   => $row [1],
+        //     'email'  => $row[9],
+        //     'password' => Hash::make($row[9])
+        //     ]);
+        
+        //   }else{
+        //     // return redirect()->back()->with('error','sorry user with that email address already exist!!');
+        //     // return redirect(‘admission’)->with(‘message’, ‘User registered!);
+        //     return redirect()->back()->with('error','sorry user with that email address already exist!!');
+        //   }
+        // $user = new User([
+        //     'user_id',
+        //     'name' ,
+        //     'email',
+        //     'password'
+            
+
+        // ]);
       
        
-
 
         return new Students([
             'registration_number'  => $row[0],
@@ -30,6 +49,7 @@ class UsersImport implements ToModel
             'parent_name'  => $row [2],
             'gender' => $row [3],
             'date_of_birth'  => date("Y-m-d", strtotime($row[4])),
+            'date_of_joining'  => date("Y-m-d", strtotime($row[5])),
             'date_of_joining'  => date("Y-m-d", strtotime($row[5])),
             'education_level'  => $row[6],
             'branch'=> $row[7],
@@ -46,4 +66,5 @@ class UsersImport implements ToModel
         // admission_number	student_name	parent_name	gender	date_of_birth date_of_join	date of join	education_level	branch	batch	email	phone_number	address	photo
 
     }
+}
 }
