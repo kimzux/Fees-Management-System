@@ -1,7 +1,8 @@
 <?php 
 
 namespace App\Http\Controllers;
-
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Students;
 use App\User;
@@ -96,7 +97,16 @@ class StudentsController extends Controller
    
   }
 }
-
+public function import(Request $request) 
+{   
+  $this->validate($request,[
+    'select_file'=>'required|mimes:xls,xlsx'
+]);
+    $path = $request->file('select_file')->getRealPath();
+    Excel::import(new UsersImport,  $path);
+    
+    return redirect('/')->with('success', 'All good!');
+}
 
   /**
    * Display the specified resource.
@@ -144,4 +154,3 @@ class StudentsController extends Controller
   
 }
 
-?>

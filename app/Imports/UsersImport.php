@@ -17,21 +17,21 @@ class UsersImport implements ToModel
     public function model(array $row)
     {
        
-        // if($_POST){
+        if($_POST){
     
-        //   $user = User::where('email', request('email'))->first();
-        //   if(!$user){
-        // $user = User::create([
-        //     'name'   => $row [1],
-        //     'email'  => $row[9],
-        //     'password' => Hash::make($row[9])
-        //     ]);
+          $user = User::where('email', request('email'))->first();
+          if(!$user){
+        $user = User::create([
+            'name'   => $row [1],
+            'email'  => $row[9],
+            'password' => Hash::make($row[9])
+            ]);
         
-        //   }else{
-        //     // return redirect()->back()->with('error','sorry user with that email address already exist!!');
-        //     // return redirect(‘admission’)->with(‘message’, ‘User registered!);
-        //     return redirect()->back()->with('error','sorry user with that email address already exist!!');
-        //   }
+          }else{
+            // return redirect()->back()->with('error','sorry user with that email address already exist!!');
+            // return redirect(‘admission’)->with(‘message’, ‘User registered!);
+            return redirect()->back()->with('error','sorry user with that email address already exist!!');
+          }
         // $user = new User([
         //     'user_id',
         //     'name' ,
@@ -50,14 +50,16 @@ class UsersImport implements ToModel
             'gender' => $row [3],
             'date_of_birth'  => date("Y-m-d", strtotime($row[4])),
             'date_of_joining'  => date("Y-m-d", strtotime($row[5])),
-            'date_of_joining'  => date("Y-m-d", strtotime($row[5])),
+            
+            // 'date_of_birth'=> $row[4],
+            // 'date_of_joining'=> $row[5],
             'education_level'  => $row[6],
             'branch'=> $row[7],
             'batch'=> $row[8],
             'email'=> $row[9],
             'phone_number'=> $row[10],
             'address'=> $row[11],
-            'photo'=>$row[12],
+            // 'image'=>$zuu,
             'user_id' => $user->id
 
         ]);
