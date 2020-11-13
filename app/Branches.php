@@ -8,6 +8,14 @@ class Branches extends Model
 {
 
     protected $table = 'branches';
-    public $timestamps = true;
+    protected $fillable=[
+        'id',
+        'branch_name',
+        
+    ];
+    public function student(){
+        return $this->belongsTo('Students');
+    }
+
 
 }

@@ -98,8 +98,13 @@
                                                 <label for="inputBranch" class="col-sm-2 col-form-label"><b>Branch</b></label>
                                                 <div class="col-sm-8">
                                                     <select class="form-control" name="branch" id="inputBranch">
-                                                        <option value="volvo">--Select Branch--</option>
-                                                        <option value="saab">nmb</option>
+                                                        < <?php
+                                                        $branches = App\Branches::all();
+                                                        foreach($branches as $branch){
+                                                          
+                                                          echo '<option value="'.$branch->id.'">'.$branch->branch_name.'</option>';
+                                                         
+                                                                }?>
                                                     </select>
                                                 </div>
                                                  </div>

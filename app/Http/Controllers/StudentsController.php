@@ -71,6 +71,7 @@ class StudentsController extends Controller
   $student->date_of_birth= request('dob');
   $student->date_of_joining= request('doj');
   $student->gender= request('gender');
+  $student->branch_id=request('branch');
   // $student->image= request('image')->nullable
   $student->save();
   
@@ -108,49 +109,7 @@ public function import(Request $request)
     return redirect('/')->with('success', 'All good!');
 }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-    
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
-  }
+ 
   
 }
 

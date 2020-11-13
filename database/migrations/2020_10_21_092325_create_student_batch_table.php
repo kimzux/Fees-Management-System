@@ -9,7 +9,7 @@ class CreateStudentbatchTable extends Migration {
 	{
 		Schema::create('student_batch', function(Blueprint $table) {
 			$table->increments('id');
-			$table->boolean('is_active');
+			$table->boolean('is_active')->default(false);
 			$table->timestamps();
 			$table->integer('batch_id');
 			$table->integer('student_id');
