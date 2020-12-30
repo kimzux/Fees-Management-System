@@ -70,7 +70,16 @@
                                  <div class="form-group row">
                                   <label for="inputGender" class="col-sm-2 col-form-label"><b>gender</b></label>
                                   <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="gender" id="inputGender" placeholder="female" required>
+                                    <!-- <input type="text" class="form-control" name="gender" id="inputGender" placeholder="female" required> -->
+                                    <div class="form-check form-check-inline">
+                               <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
+                               <label class="form-check-label" for="inlineRadio1">male</label>
+                                  </div>
+                               <div class="form-check form-check-inline">
+                                     <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+                                      <label class="form-check-label" for="inlineRadio2">female</label>
+                                         </div>
+
                                   </div>
                                 </div>
                                  <div class="form-group row">
